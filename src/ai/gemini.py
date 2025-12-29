@@ -10,7 +10,7 @@ class Gemini(AIPlatform):
         self.api_key = api_key
         self.system_prompt = system_prompt
         genai.configure(api_key=self.api_key)
-        self.model = genai.GenerativeModel("gemini-2.5-flash-preview-05-20")
+        self.model = genai.GenerativeModel("gemini-2.5-flash")
         
     def chat(self,prompts:str) -> str:
         if self.system_prompt:
