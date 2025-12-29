@@ -1,11 +1,16 @@
 import os 
+from pathlib import Path
 from fastapi import FastAPI , Depends
 from pydantic import BaseModel
+from dotenv import load_dotenv
+
+# Load .env file from project root
+env_path = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
+
 from src.ai.gemini import Gemini
 from src.auth.dependencies import get_user_identifier
 from src.auth.throttling import apply_rate_limit
-
-
 
 app = FastAPI()
 
